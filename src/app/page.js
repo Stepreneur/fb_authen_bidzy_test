@@ -1,10 +1,11 @@
 'use client'
-
+import FacebookBtn from "@/components/FacebookBtn/page"
 export default function HomePage() {
 
   return (
     <div>
-      <div>dw</div>
+      <h>facebook</h>
+      <FacebookBtn />
     </div>
   )
 }
