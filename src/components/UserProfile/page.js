@@ -73,11 +73,29 @@ export default function UserProfile() {
       )}
 
       {userData && (
-        <div className="bg-gray-50 p-4 rounded-lg mb-4">
-          <h3 className="font-semibold text-gray-800 mb-2">Your Profile Data:</h3>
-          <pre className="text-sm text-gray-600 overflow-auto">
-            {JSON.stringify(userData, null, 2)}
-          </pre>
+        <div className="space-y-4">
+          {/* Facebook Profile Link */}
+          {userData.facebookData?.link && (
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-blue-800 mb-2">Facebook Profile:</h3>
+              <a 
+                href={userData.facebookData.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline break-all"
+              >
+                {userData.facebookData.link}
+              </a>
+            </div>
+          )}
+
+          {/* Full Profile Data */}
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="font-semibold text-gray-800 mb-2">Your Profile Data:</h3>
+            <pre className="text-sm text-gray-600 overflow-auto max-h-40">
+              {JSON.stringify(userData, null, 2)}
+            </pre>
+          </div>
         </div>
       )}
 
