@@ -32,11 +32,12 @@ export async function GET() {
 
     // You can also fetch data from your database here
     const userProfile = {
-      id: session.user.id || session.user.email,
+      id: session.facebookId || session.user.id || session.user.email,
       name: session.user.name,
       email: session.user.email,
       image: session.user.image,
       provider: session.provider || "facebook",
+      facebookId: session.facebookId,
       loginTime: new Date().toISOString(),
       facebookData: facebookData,
       // Add any additional user data you want to fetch

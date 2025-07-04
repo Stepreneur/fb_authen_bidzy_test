@@ -15,6 +15,10 @@ const handler = NextAuth({
       if (account) {
         token.accessToken = account.access_token;
         token.provider = account.provider;
+        // Store the Facebook user ID
+        if (account.provider === "facebook") {
+          token.facebookId = account.providerAccountId;
+        }
       }
       return token;
     },
@@ -22,6 +26,7 @@ const handler = NextAuth({
       // Send properties to the client, like an access_token from a provider
       session.accessToken = token.accessToken;
       session.provider = token.provider;
+      session.facebookId = token.facebookId;
       return session;
     },
   },
